@@ -34,6 +34,9 @@ public class CiklicnaMatrica {
 		}
 
 		for (int i=1;i<stup;i++) {
+			if(red<=1) {
+				break;
+			}
 			matrica[0][i] = x++;
 		}
 
