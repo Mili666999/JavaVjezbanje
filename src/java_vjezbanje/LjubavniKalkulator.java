@@ -9,11 +9,11 @@ public class LjubavniKalkulator {
 	
 	public static void main(String[] args) {
 		
-		boolean dev = false;
+		boolean dev = true;
 		
 		//Unos imena kao string
-		String prvoIme = dev ? "Ivona" : JOptionPane.showInputDialog("Unesi prvo ime");
-		String drugoIme = dev ? "Antonio" : JOptionPane.showInputDialog("Unesi drugo ime");
+		String prvoIme = dev ? "Ana" : JOptionPane.showInputDialog("Unesi prvo ime");
+		String drugoIme = dev ? "Milovan" : JOptionPane.showInputDialog("Unesi drugo ime");
 		
 		//Prebacivanje svih slova u mala slova i izbacivanje eventualnih razmaka
 		prvoIme = prvoIme.toLowerCase().replaceAll("\\s", "").replace("-", "");
@@ -33,6 +33,10 @@ public class LjubavniKalkulator {
 		//Sortiranje niza abecedno (zbog unosa dva imena različitim redoslijedom)
 		Arrays.sort(glavniNiz);
 		
+		//Kreiranje i punjenje brojevnog niza
+		for(int i=0;i<glavniNiz.length;i++) {
+			
+		}
 		
 		
 		
