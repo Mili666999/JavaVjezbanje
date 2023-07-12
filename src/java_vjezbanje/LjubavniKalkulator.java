@@ -16,8 +16,8 @@ public class LjubavniKalkulator {
 		String drugoIme = dev ? "Antonio" : JOptionPane.showInputDialog("Unesi drugo ime");
 		
 		//Prebacivanje svih slova u mala slova i izbacivanje eventualnih razmaka
-		prvoIme = prvoIme.toLowerCase().trim();
-		drugoIme = drugoIme.toLowerCase().trim();
+		prvoIme = prvoIme.toLowerCase().replaceAll("\\s", "").replace("-", "");
+		drugoIme = drugoIme.toLowerCase().replaceAll("\\s", "").replace("-", "");
 		
 		//Prebacivanje imena iz stringa u niz
 		char[] prviNiz = prvoIme.toCharArray();
@@ -32,6 +32,11 @@ public class LjubavniKalkulator {
 		
 		//Sortiranje niza abecedno (zbog unosa dva imena različitim redoslijedom)
 		Arrays.sort(glavniNiz);
+		
+		
+		
+		
+		
 		
 		System.out.println(Arrays.toString(glavniNiz));
 		
