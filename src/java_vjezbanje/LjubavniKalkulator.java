@@ -8,8 +8,9 @@ public class LjubavniKalkulator {
 	
 	
 	static int[] zbrojNiza(int [] brojevniNiz) {
+		
 		//Provjera je li broj elemenata u brojevnom nizu paran
-		//Ako nije, dodajem 0 na kraj niza
+		//Ako nije, dodajem jedan element (0) na kraj niza
 		if(brojevniNiz.length%2!=0) {
 			int parniBrojevniNiz[] = new int [brojevniNiz.length+1];
 			for(int i=0;i<brojevniNiz.length;i++) {
@@ -17,11 +18,23 @@ public class LjubavniKalkulator {
 			}
 			brojevniNiz = parniBrojevniNiz.clone();
 		}
+		
+		//Kreiram zadnji niz u pola manji od brojevnog niza
+		//jer se nakon svakog zbrajanja niz prepolovi
 		int zadnjiNiz[] = new int [brojevniNiz.length/2];
-		if(zadnjiNiz.length>2) {
-			zbrojNiza(brojevniNiz);
+		
+		//Zbrajanje elemenata brojevnog niza na način prvi sa zadnjim, drugi s predzadnjim...
+		for(int i=0,j=brojevniNiz.length-1;i<=brojevniNiz.length/2 && j>=brojevniNiz.length/2;i++,j--) {
+			zadnjiNiz[i] = brojevniNiz[i] + brojevniNiz[j];
 		}
-		return zadnjiNiz;
+		brojevniNiz = zadnjiNiz.clone();
+		
+		//Dok je god veći od dva, rekurziram
+		if(brojevniNiz.length==2) {
+			return brojevniNiz;
+		}
+		System.out.println(Arrays.toString(brojevniNiz));
+		return zbrojNiza(brojevniNiz);	
 	}
 	
 	
@@ -30,8 +43,8 @@ public class LjubavniKalkulator {
 		boolean dev = true;
 		
 		//Unos imena kao string
-		String prvoIme = dev ? "Ana" : JOptionPane.showInputDialog("Unesi prvo ime");
-		String drugoIme = dev ? "Milovan" : JOptionPane.showInputDialog("Unesi drugo ime");
+		String prvoIme = dev ? "Marta" : JOptionPane.showInputDialog("Unesi prvo ime");
+		String drugoIme = dev ? "Manuel" : JOptionPane.showInputDialog("Unesi drugo ime");
 		
 		//Prebacivanje svih slova u mala slova i izbacivanje eventualnih razmaka
 		prvoIme = prvoIme.toLowerCase().replaceAll("\\s", "").replace("-", "");
@@ -49,7 +62,7 @@ public class LjubavniKalkulator {
 		System.arraycopy(drugiNiz, 0, glavniNiz, dpn, ddn);
 		
 		//Sortiranje niza abecedno (zbog unosa dva imena različitim redoslijedom)
-		Arrays.sort(glavniNiz);
+		//Arrays.sort(glavniNiz);
 		
 		//Kopiranje glavnog niza za usporedbu
 		char pomocniNiz[] = glavniNiz.clone();
@@ -65,6 +78,7 @@ public class LjubavniKalkulator {
 				}
 			}
 		}
-		System.out.println(zbrojNiza(brojevniNiz));
+		System.out.println(Arrays.toString(brojevniNiz));
+		System.out.println(Arrays.toString(zbrojNiza(brojevniNiz)));
 	}
 }
