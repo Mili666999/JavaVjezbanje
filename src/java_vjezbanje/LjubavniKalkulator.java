@@ -29,12 +29,24 @@ public class LjubavniKalkulator {
 		}
 		brojevniNiz = zadnjiNiz.clone();
 		
+		//Prebacujem niz u string i vraćam nazad da bih se riješio
+		//dvoznamenkastih članova niza
+		String brojevniString = Arrays.toString(brojevniNiz);
+		String[] znakovniNiz = brojevniString.replace("[", "").replace("]", "").split(", ");
+		int [] pomocniBrojevni = new int[znakovniNiz.length];
+		for(int i=0;i<znakovniNiz.length;i++) {
+			pomocniBrojevni[i] = Integer.parseInt(znakovniNiz[i]);
+		}
+		brojevniNiz = pomocniBrojevni.clone();
+		
 		//Dok je god veći od dva, rekurziram
-		if(brojevniNiz.length==2) {
+		if(brojevniNiz.length<2) {
 			return brojevniNiz;
 		}
 		System.out.println(Arrays.toString(brojevniNiz));
 		return zbrojNiza(brojevniNiz);	
+	
+	
 	}
 	
 	
