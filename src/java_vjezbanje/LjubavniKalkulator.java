@@ -55,8 +55,8 @@ public class LjubavniKalkulator {
 		boolean dev = true;
 		
 		//Unos imena kao string
-		String prvoIme = dev ? "Marta" : JOptionPane.showInputDialog("Unesi prvo ime");
-		String drugoIme = dev ? "Manuel" : JOptionPane.showInputDialog("Unesi drugo ime");
+		String prvoIme = dev ? "Ana" : JOptionPane.showInputDialog("Unesi prvo ime");
+		String drugoIme = dev ? "Milovan" : JOptionPane.showInputDialog("Unesi drugo ime");
 		
 		//Prebacivanje svih slova u mala slova i izbacivanje eventualnih razmaka
 		prvoIme = prvoIme.toLowerCase().replaceAll("\\s", "").replace("-", "");
