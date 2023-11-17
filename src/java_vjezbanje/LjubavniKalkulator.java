@@ -13,9 +13,7 @@ public class LjubavniKalkulator {
 		//Ako nije, dodajem jedan element (0) na kraj niza
 		if(brojevniNiz.length%2!=0) {
 			int parniBrojevniNiz[] = new int [brojevniNiz.length+1];
-			for(int i=0;i<brojevniNiz.length;i++) {
-				parniBrojevniNiz[i] = brojevniNiz[i];
-			}
+                    System.arraycopy(brojevniNiz, 0, parniBrojevniNiz, 0, brojevniNiz.length);
 			brojevniNiz = parniBrojevniNiz.clone();
 		}
 		
@@ -43,7 +41,7 @@ public class LjubavniKalkulator {
 		if(brojevniNiz.length<2) {
 			return brojevniNiz;
 		}
-		System.out.println(Arrays.toString(brojevniNiz));
+		//System.out.println(Arrays.toString(brojevniNiz));
 		return zbrojNiza(brojevniNiz);	
 	
 	
@@ -90,7 +88,7 @@ public class LjubavniKalkulator {
 				}
 			}
 		}
-		System.out.println(Arrays.toString(brojevniNiz));
+		//System.out.println(Arrays.toString(brojevniNiz));
 		System.out.println(Arrays.toString(zbrojNiza(brojevniNiz)));
 	}
 }

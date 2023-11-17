@@ -1,6 +1,6 @@
 package java_vjezbanje;
 
-public class Osijek_x_100 {
+public class Osijek_x100 {
 	
 	public static void main(String[] args) {
 		
